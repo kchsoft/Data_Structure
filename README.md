@@ -1,2 +1,3 @@
 # Data_Structure
-Study about Data Structure
+자료구조
+>배열
