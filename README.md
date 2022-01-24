@@ -70,13 +70,12 @@ ___
  
 비어있는 스택에 데이터 A0가 삽입되면 A0가 탑이 된다.  
 이후에 데이터 A1이 삽입되면 탑(A0) 위에 A1이 쌓이면서 A1이 탑이된다.  
-<img width = 100
-     src="https://images.velog.io/images/kchsoft/post/42915260-7e11-4f31-a7a1-3fc47f43450b/%EC%8A%A4%ED%83%9D0.png">  
+<img width = 150 src="Stack_push.gif">  
 <br>
-반대로 스택에 쌓인 데이터를 삭제한다면 맨 위에 쌓여있는 데이터 부터 즉, 가장 최근에 삽입된 데이터(A4) 먼저 삭제된다.  
-  <img width = 100 src = "https://images.velog.io/images/kchsoft/post/df2d5606-27c3-45e8-b9ea-97fe7482eec4/%EC%8A%A4%ED%83%9D1.png">  
+반대로 스택에 쌓인 데이터를 삭제한다면 맨 위에 쌓여있는 데이터 부터 즉, 가장 최근에 삽입된 데이터(A4) 먼저 삭제된다.   
+<img width = 150 src="Stack_pop.gif">  
 
-이러한 특징을 **LIFO(Last In First Out)**라고 부른다.   
+이러한 특징을 **LIFO(Last In First Out)** 라고 부른다.   
 **가장 최근에 들어온 데이터가 먼저 나가는 특징을 가지고 있다.**  
 
 <br>
