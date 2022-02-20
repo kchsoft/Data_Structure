@@ -3,13 +3,13 @@
 >- <a href="#array">배열</a> 
 >- <a href="#list">리스트</a> 
 >- <a href="#stack">스택</a>
->- <a hreaf="#queue">큐</a>
+>- <a href="#queue">큐</a>
 >- <a href="#tree">트리</a>
 
 <br>
 <br>
 
-# <div id="array">배열(Array)</div>
+# <div id="array">배열(Array)</div>  
 ## 정의
  Array(배열) : 한 종류의 데이터 타입을 연속적으로 메모리에 저장한 집합이다.
 ```
@@ -183,7 +183,7 @@ ____________________________________________________________________________
 <br>
 <br>
 
-# <div id="#">큐(Queue)</div> # 
+# <div id="queue">큐(Queue)</div>
 
 ## 정의  
 Queue(큐) :  모든 삽입은 한쪽 끝에서 이루어 지고(Rear), 모든 삭제는 반대 한 쪽(Front)에서 이루어 지는 정렬된 리스트이다.  
