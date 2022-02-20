@@ -4,6 +4,7 @@
 >- <a href="#list">리스트</a> 
 >- <a href="#stack">스택</a>
 >- <a hreaf="queue">큐</a>
+>- <a href="tree">트리</a>
 
 <br>
 <br>
@@ -214,3 +215,96 @@ ____________________________________________________________________________
 <br>
 <br>
 <br>
+
+
+# <div id="tree">트리</div>  
+
+## 정의  
+Tree(트리) : 한 개 이상의 노드를 가진 유한한 집합  
+트리에는 루트(Root) 노드(Node)라고 불리는 것이 있다.   
+>Tree 예시  
+<img width=300 src="Tree/Tree.png">  
+
+<br>
+<br>  
+
+## 특징  
+
+- 서브트리(SubTree) :   
+<img width=300 src="Tree/SubTree.gif">  
+
+- 트리의 크기(Size of tree) : 노드의 갯수 -> 8 (A B C D E F G H)  
+- 노드의 차수(Degree of node) : 서브트리의 갯수 -> A의 경우 2, B의경우 3  
+- 트리의 차수(Degree of tree) : 노드의 최대 차수 -> 3 (B)   
+<br>
+- 트리의 레벨(Level of tree) : 노드의 최대 레벨 -> 루트로 부터 아래 노드로 갈 수록 1씩 증가한다. 루트의 레벨은 0 혹은 1로 가정할 수 있다.  
+레벨은 아래 그림과 같이 노드 1개를 의미하는 것이 아니라 가로선상에 동일한 노드 모두를 의미한다. 
+<img width=350 src="Tree/Level.gif" > 
+- 트리의 높이(Height or Depth of a  tree) -> 트리에서 가장 큰 레벨-> 4 (H)   
+- 트리의 너비(Width of tree) : 가장 큰 레벨에 있는 노드의 수 -> 1 (H)  
+
+<br>  
+
+- 단말 노드(Terminal Node) : 리프(Leaf)노드 라고 부르기도 하며, 자녀(Childern)가 없는 노드를 의미한다.    
+- 비단말 노드(Non-Terminal Node) : 자녀(Childern)를 가지고 있는 노드를 의미한다.   
+<img width=350 src="Tree/TerminalNode.gif">   
+
+- 부모(parent) : 하나의 노드의 바로 위에 노드 -> B의 부모는 A, D의 부모는 B  
+- 자녀(Childern) : 부모 노드의 바로 아래 노드 -> A의 자녀는 B,C , B의 자녀는 D,E,F  
+- 형제(Sibling) : 같은 레벨을 가지는 노드 -> D의 형제는 E,F,G  
+- 할아버지(Grand parent) : 부모 노드의 부모노드  
+- 손자(Grand childern) : 자녀 노드의 자녀노드  
+- 조상(Ancestors) : 루트부터 해당 노드까지에 있는 모든 노드 -> H의 조상은 G,C, A    
+- 자손(Descendants) : 해당 노드의 서브트리에 해당하는 모든 노드 -> B의 자손은 D,E,F   
+
+<br>
+
+## 이진트리(Binary Tree)  
+### 정의
+Binary Tree(이진트리)  : 모든 노드의 차수가 2개인 트리, Left child와 Rigth Child를 구분한다.  
+왼쪽과 오른쪽 트리 모두 이진트리 이다. 특히 오른쪽 트리는 편향(Skewed)이진 트리라고 부른다.   
+<img width=350 src="Tree/Binary-tree.png">  
+
+- 레벨 i 에서 이진트리의 최대 노드 갯수 : 2^(i - 1) (i>=1)-> 레벨 3에서 최대 노드 갯수는 2^(3-1) =  2^2 = 4개 이다.  
+- 높이가 h인 이진트리의 최대 노드 갯수 : 2^h - 1 (h>=1)-> 높이가 3일때 최대 노드 갯수는 2^3 - 1 = 8 - 1 = 7개 이다.
+
+<br>
+
+## 포화 이진트리(Full-Binary Tree)  
+### 정의  
+Full-Binary Tree(포화 이진트리) : 높이가 h이며, 노드의 갯수가 2^h - 1 (h>=0)개인 이진트리, 즉 높이 h까지 모든 노드의 차수가 2로 채워진 트리이다.  
+<img width=300 src="Tree/Full-Binary-Tree.png">
+
+<br> 
+
+## 완전 이진트리(Complete-Binary Tree)  
+### 정의  
+Complete-Binary Tree(완전 이진트리) : 노드에 번호를 대응하였을 때, 중간에 빠지는 것 없이 차례대로 노드가 있는 이진트리이다. 
+<img width=300 src="Tree/Complete-Binary-Tree.png">
+
+<br> 
+
+## 이진트리 순회(Binary Tree Traversal)  
+<br> 
+
+### 중위식(Inorder)
+1. 왼쪽 노드로 이동
+1. 해당 노드를 방문(출력 등등)
+1. 오른쪽 노드로 이동  
+<img width=400 src="Tree/Inorder.gif">
+
+<br> 
+
+### 전위식(Preorder)  
+1. 해당 노드를 방문(출력 등등)
+1. 왼쪽 노드로 이동
+1. 오른쪽 노드로 이동  
+<img width=400 src="Tree/Preorder.gif">
+
+<br> 
+
+### 후위식(Postorder)  
+1. 왼쪽 노드로 이동
+1. 오른쪽 노드로 이동 
+1. 해당 노드를 방문(출력 등등)  
+<img width=400 src="Tree/Postorder.gif">
