@@ -237,9 +237,11 @@ Tree(트리) : 한 개 이상의 노드를 가진 유한한 집합
 - 노드의 차수(Degree of node) : 서브트리의 갯수 -> A의 경우 2, B의경우 3  
 - 트리의 차수(Degree of tree) : 노드의 최대 차수 -> 3 (B)   
 <br>
-- 트리의 레벨(Level of tree) : 노드의 최대 레벨 -> 루트로 부터 아래 노드로 갈 수록 1씩 증가한다. 루트의 레벨은 0 혹은 1로 가정할 수 있다.  
-레벨은 아래 그림과 같이 노드 1개를 의미하는 것이 아니라 가로선상에 동일한 노드 모두를 의미한다. 
+
+- 트리의 레벨(Level of tree) : 노드의 최대 레벨 -> 루트로 부터 아래 노드로 갈 수록 1씩 증가한다. 루트의 레벨은 0 혹은 1로 가정할 수 있다.   
+레벨은 아래 그림과 같이 노드 1개를 의미하는 것이 아니라 가로선상에 동일한 노드 모두를 의미한다.  
 <img width=350 src="Tree/Level.gif" > 
+
 - 트리의 높이(Height or Depth of a  tree) -> 트리에서 가장 큰 레벨-> 4 (H)   
 - 트리의 너비(Width of tree) : 가장 큰 레벨에 있는 노드의 수 -> 1 (H)  
 
@@ -265,8 +267,8 @@ Binary Tree(이진트리)  : 모든 노드의 차수가 2개인 트리, Left chi
 왼쪽과 오른쪽 트리 모두 이진트리 이다. 특히 오른쪽 트리는 편향(Skewed)이진 트리라고 부른다.   
 <img width=350 src="Tree/Binary-tree.png">  
 
-- 레벨 i 에서 이진트리의 최대 노드 갯수 : 2^(i - 1) (i>=1)-> 레벨 3에서 최대 노드 갯수는 2^(3-1) =  2^2 = 4개 이다.  
-- 높이가 h인 이진트리의 최대 노드 갯수 : 2^h - 1 (h>=1)-> 높이가 3일때 최대 노드 갯수는 2^3 - 1 = 8 - 1 = 7개 이다.
+- 레벨 i 에서 이진트리의 최대 노드 갯수 : 2^(i - 1) (i>=1)-> 레벨 3에서 최대 노드 갯수는 2^(3-1) = 4개 이다.    
+- 높이가 h인 이진트리의 최대 노드 갯수 : 2^h - 1 (h>=1)-> 높이가 3일때 최대 노드 갯수는 2^3 - 1 = 7개 이다.
 
 <br>
 
@@ -279,8 +281,8 @@ Full-Binary Tree(포화 이진트리) : 높이가 h이며, 노드의 갯수가 2
 
 ## 완전 이진트리(Complete-Binary Tree)  
 ### 정의  
-Complete-Binary Tree(완전 이진트리) : 노드에 번호를 대응하였을 때, 중간에 빠지는 것 없이 차례대로 노드가 있는 이진트리이다. 
-<img width=300 src="Tree/Complete-Binary-Tree.png">
+Complete-Binary Tree(완전 이진트리) : 노드에 번호를 대응하였을 때, 중간에 빠지는 것 없이 차례대로 노드가 있는 이진트리이다.  
+<img width=300 src="Tree/Complete-Binary-Tree.png">  
 
 <br> 
 
@@ -308,3 +310,55 @@ Complete-Binary Tree(완전 이진트리) : 노드에 번호를 대응하였을 
 1. 오른쪽 노드로 이동 
 1. 해당 노드를 방문(출력 등등)  
 <img width=400 src="Tree/Postorder.gif">
+
+<br> 
+
+### 레벨 순서(Level-order) - BFS  
+1. 큐에 노드를 저장  
+이후에  아래 반복
+2. 큐의 Front에서 노드를 가져옴
+3. 노드 출력
+4. 노드의 Left Child를 큐에 저장
+5. 노드의 Right Child를 큐에 저장  
+<img width=600 src="Tree/Levelorder.gif">
+
+<br>  
+
+## 최대 힙(Max Heap)  
+### 정의  
+Max Tree : 부모 노드의 키 값(Key Value) >= 자식 노드의 키 값(Key Value) 인 Tree  
+Max Heap(최대 힙) : Max Tree인 **완전 이진트리(Complete binary tree)**  
+즉, 부모 노드의 키 값이 자식의 노드 키 값보다 크거나 같은 조건이 성립되는 완전 이진트리를 의미한다.  
+<img width=350 src="Tree/MaxHeap.png">  
+
+<br> 
+
+### 삽입(Insertion)  
+1. 완전 이진트리의 번호 순서에 맞게 노드를 추가한다.  
+이후에 아래를 반복한다.  
+2. 추가된 노드와 부모 노드와 값을 비교한다.
+3. 부모 노드의 키 값이 더 작다면 서로 교환한다.  
+<img width=400 src="Tree/MaxHeap_Insertion.gif">  
+Max Heap의 삽입은 새로운 노드가 추가될 때마다 트리의 최대 depth만큼 비교하게 된다.  
+따라서 시간복잡도는
+ $$O(log_2 N)이다.$$
+<br> 
+
+### 삭제(Deletion)   
+1. 루트 노드의 값을 삭제한다.
+2. 완전 이진트리의 가장 마지막 노드의 키 값을 루트 노드로 가져온다.  
+이후에 아래를 반복한다.  
+3. 가져온 값의 Left Child와 Right Child를 비교하여 큰 키 값을 고른다.  
+4. 가져온 값과 Child를 비교하여 child의 키 값이 더 크다면 서로 교환한다.  
+<img width=400 src="Tree/MaxHeap_Deletion.gif">  
+Max Heap의 삭제는 가장 큰 키 값(루트 노드)부터 제거된다. 따라서 삭제 또한 트리의 최대 depth만큼 비교하기 때문에 시간복잡도는  
+ $$O(log_2 N)이다.$$  
+하지만 임의의 노드를 삭제하려면 시간복잡도는 O(n)이 되기 때문에 비효율적이다.
+
+
+
+<부록>  
+- Left Child-Right Sibling 표현
+- Thread binary tree
+- Rebuild a tree from traversal results
+- Priority Queues
