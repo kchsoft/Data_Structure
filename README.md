@@ -5,6 +5,15 @@
 >- <a href="#stack">스택</a>
 >- <a href="#queue">큐</a>
 >- <a href="#tree">트리</a>
+>   - <a href="#binary_tree">이진 트리</a>
+>   - <a href="#full_binary_tree">포화 이진 트리</a>
+>   - <a href="#complete_binary_tree">완전 이진 트리</a>
+>   - <a href="#binary_tree_traversal">이진 트리 순회</a>
+>   - <a href="#max_heap">최대 힙</a>
+>   - <a href="#binary_search_tree">이진 탐색 트리</a>
+> 
+> 
+> 
 
 <br>
 <br>
@@ -261,7 +270,7 @@ Tree(트리) : 한 개 이상의 노드를 가진 유한한 집합
 
 <br>
 
-## 이진트리(Binary Tree)  
+## <div id="binary_tree">이진트리(Binary Tree)  </div>
 ### 정의
 Binary Tree(이진트리)  : 모든 노드의 차수가 2개인 트리, Left child와 Rigth Child를 구분한다.  
 왼쪽과 오른쪽 트리 모두 이진트리 이다. 특히 오른쪽 트리는 편향(Skewed)이진 트리라고 부른다.   
@@ -272,21 +281,21 @@ Binary Tree(이진트리)  : 모든 노드의 차수가 2개인 트리, Left chi
 
 <br>
 
-## 포화 이진트리(Full-Binary Tree)  
+## <div id="full_binary_tree">포화 이진트리(Full-Binary Tree)  </div>
 ### 정의  
 Full-Binary Tree(포화 이진트리) : 높이가 h이며, 노드의 갯수가 2^h - 1 (h>=0)개인 이진트리, 즉 높이 h까지 모든 노드의 차수가 2로 채워진 트리이다.  
 <img width=300 src="Tree/Full-Binary-Tree.png">
 
 <br> 
 
-## 완전 이진트리(Complete-Binary Tree)  
+## <div id="complete_binary_tree">완전 이진트리(Complete-Binary Tree)  </div>
 ### 정의  
 Complete-Binary Tree(완전 이진트리) : 노드에 번호를 대응하였을 때, 중간에 빠지는 것 없이 차례대로 노드가 있는 이진트리이다.  
 <img width=300 src="Tree/Complete-Binary-Tree.png">  
 
 <br> 
 
-## 이진트리 순회(Binary Tree Traversal)  
+## <div id="binary_tree_traversal">이진트리 순회(Binary Tree Traversal) </div>
 <br> 
 
 ### 중위식(Inorder)
@@ -324,7 +333,7 @@ Complete-Binary Tree(완전 이진트리) : 노드에 번호를 대응하였을 
 
 <br>  
 
-## 최대 힙(Max Heap)  
+## <div id="max_heap">최대 힙(Max Heap) </div>
 ### 정의  
 Max Tree : 부모 노드의 키 값(Key Value) >= 자식 노드의 키 값(Key Value) 인 Tree  
 Max Heap(최대 힙) : Max Tree인 **완전 이진트리(Complete binary tree)**  
@@ -340,8 +349,7 @@ Max Heap(최대 힙) : Max Tree인 **완전 이진트리(Complete binary tree)**
 3. 부모 노드의 키 값이 더 작다면 서로 교환한다.  
 <img width=400 src="Tree/MaxHeap_Insertion.gif">  
 Max Heap의 삽입은 새로운 노드가 추가될 때마다 트리의 최대 depth만큼 비교하게 된다.  
-따라서 시간복잡도는
- $$O(log_2 N)이다.$$
+따라서 시간복잡도는 O(log_2(n))이다.  (n은 노드의 갯수)
 <br> 
 
 ### 삭제(Deletion)   
@@ -351,10 +359,65 @@ Max Heap의 삽입은 새로운 노드가 추가될 때마다 트리의 최대 d
 3. 가져온 값의 Left Child와 Right Child를 비교하여 큰 키 값을 고른다.  
 4. 가져온 값과 Child를 비교하여 child의 키 값이 더 크다면 서로 교환한다.  
 <img width=400 src="Tree/MaxHeap_Deletion.gif">  
-Max Heap의 삭제는 가장 큰 키 값(루트 노드)부터 제거된다. 따라서 삭제 또한 트리의 최대 depth만큼 비교하기 때문에 시간복잡도는  
- $$O(log_2 N)이다.$$  
-하지만 임의의 노드를 삭제하려면 시간복잡도는 O(n)이 되기 때문에 비효율적이다.
+Max Heap의 삭제는 가장 큰 키 값(루트 노드)부터 제거된다. 따라서 삭제 또한 트리의 최대 depth만큼 비교하기 때문에 시간복잡도는 O(log_2 N)이다.  
+하지만 임의의 노드를 삭제하려면 모든 노드를 찾아야 하므로 시간복잡도는 O(n)이 되기 때문에 비효율적이다.    
+<br>
 
+## <div id="binary_search_tree">이진 탐색 트리(Binary Search Tree) - BST </div>
+### 정의  
+탐색(Search)을 위하 이진 트리 이다.  
+- 모든 요소는 키(Key)값을 가지며, 중복되지 않는다.  
+- 왼쪽 서브트리의 모든 키 값은 루트 노드 키값보다 작다.  
+- 오른쪽 서브트리의 모든 키 값은 루트 노드 키값보다 작다.  
+- 왼쪽, 오른쪽 서브트리 또한 BST이다.  
+<img width=500 src="Tree/BinarySearchTree.jpg">  
+
+BST의 중위식은 요소들을 정렬하여 나열하는 것과 같은 효과를 가진다.  
+탐색,삽입,삭제는 적어도 O(h)의 시간복잡도를 가진다. (h은 BST의 height)  
+<br>
+Average Case(평균의 경우) : O(h), h는 BST의 height  
+Worst Case(최악의 경우) : O(n), n은 BST의 노드 갯수 (오른쪽)   
+Complete BT(완전이진트리) : O(log_2(n)) , (왼쪽)  
+<img width=500 src="Tree/BST_TimComplexity.jpg">  
+
+즉, BST의 형태가 어떠한지에 따라 시간복잡도는 달라진다.  
+
+<br>
+
+### 삽입(Insertion)   
+1. 루트 노드와 삽입 노드의 key 값을 비교한다.
+2. 삽입 노드의 key 값이 크면 Right Child, 작으면 Left Child와 비교한다.
+3. child가 없다면 그 자리에 노드를 삽입한다.  
+<img width=400 src="Tree/BST_Insertion.gif">
+
+(더 자세한 코드의 흐름은 강의노트 참조 필요)  
+보통의 경우 삽입은 O(h) (h는 height)의 시간복잡도를 갖는다.  
+하지만 정렬된 순서로 데이터가 들어오면 편향(Skewed)이진 트리의 형태를 갖게되어 Worst Case가 된다.  
+따라서 데이터 입력에 상관없이 완전 이진트리의 형태로 닮아가는 것을 목표로 해야한다.   
+<br>
+
+### 삭제(Deletion)  
+BST의삭제는 아래와 같이 3가지 경우로 나눠볼 수 있다.
+- Leaf 노드 삭제
+- Child 1개인 노드 삭제
+- Child 2개인 노드 삭제
+<br>
+
+1. Leaf 노드 삭제  
+<img width=200 src="Tree/BST_Deletion_Leaf.gif">
+
+2. Child 1개인 노드 삭제  
+삭제하고자 하는 노드의 Child와 Parent를 연결시킨 뒤 노드를 삭제한다.  
+<img width=200 src="Tree/BST_Deletion_child1.gif">
+   
+3. Child 2개인 노드 삭제    
+     1. 삭제 노드의 Left subtree의 가장 큰 값 // 혹은 Right subtree의 가장 작은 값을 선택한다.(지금은 Left subtree 선택)  
+     2. 선택한 노드의 값을 삭제 노드로 복사한다.
+     3. 선택한 노드의 Child와 Parent를 연결 시킨다.
+     4. 선택한 노드를 제거한다.  
+ 
+<img width=500 src="Tree/BST_Deletion_child2.gif">
+ 
 
 
 <부록>  
@@ -362,3 +425,5 @@ Max Heap의 삭제는 가장 큰 키 값(루트 노드)부터 제거된다. 따�
 - Thread binary tree
 - Rebuild a tree from traversal results
 - Priority Queues
+- Forest
+- Sets
