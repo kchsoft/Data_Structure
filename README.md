@@ -276,8 +276,8 @@ Binary Tree(이진트리)  : 모든 노드의 차수가 2개인 트리, Left chi
 왼쪽과 오른쪽 트리 모두 이진트리 이다. 특히 오른쪽 트리는 편향(Skewed)이진 트리라고 부른다.   
 <img width=350 src="Tree/Binary-tree.png">  
 
-- 레벨 i 에서 이진트리의 최대 노드 갯수 : 2^(i - 1) (i>=1)-> 레벨 3에서 최대 노드 갯수는 2^(3-1) = 4개 이다.    
-- 높이가 h인 이진트리의 최대 노드 갯수 : 2^h - 1 (h>=1)-> 높이가 3일때 최대 노드 갯수는 2^3 - 1 = 7개 이다.
+- 레벨 i 에서 이진트리의 최대 노드 갯수 : 2^(i - 1) (i>=1)-> 레벨 3에서 최대 노드 갯수는 2² = 4개 이다.    
+- 높이가 h인 이진트리의 최대 노드 갯수 : 2^h - 1 (h>=1)-> 높이가 3일때 최대 노드 갯수는 2³ - 1 = 7개 이다.
 
 <br>
 
@@ -349,7 +349,7 @@ Max Heap(최대 힙) : Max Tree인 **완전 이진트리(Complete binary tree)**
 3. 부모 노드의 키 값이 더 작다면 서로 교환한다.  
 <img width=400 src="Tree/MaxHeap_Insertion.gif">  
 Max Heap의 삽입은 새로운 노드가 추가될 때마다 트리의 최대 depth만큼 비교하게 된다.  
-따라서 시간복잡도는 O(log_2(n))이다.  (n은 노드의 갯수)
+따라서 시간복잡도는 O(log₂n)이다.  (n은 노드의 갯수)
 <br> 
 
 ### 삭제(Deletion)   
@@ -373,11 +373,11 @@ Max Heap의 삭제는 가장 큰 키 값(루트 노드)부터 제거된다. 따�
 <img width=500 src="Tree/BinarySearchTree.jpg">  
 
 BST의 중위식은 요소들을 정렬하여 나열하는 것과 같은 효과를 가진다.  
-탐색,삽입,삭제는 적어도 O(h)의 시간복잡도를 가진다. (h은 BST의 height)  
+탐색,삽입,삭제는 평균적으로 O(h)의 시간복잡도를 가진다. (h은 BST의 height)  
 <br>
 Average Case(평균의 경우) : O(h), h는 BST의 height  
 Worst Case(최악의 경우) : O(n), n은 BST의 노드 갯수 (오른쪽)   
-Complete BT(완전이진트리) : O(log_2(n)) , (왼쪽)  
+Complete BT(완전이진트리) : O(log₂n) , (왼쪽)  
 <img width=500 src="Tree/BST_TimComplexity.jpg">  
 
 즉, BST의 형태가 어떠한지에 따라 시간복잡도는 달라진다.  
@@ -426,4 +426,93 @@ BST의삭제는 아래와 같이 3가지 경우로 나눠볼 수 있다.
 - Rebuild a tree from traversal results
 - Priority Queues
 - Forest
-- Sets
+- Sets  
+
+
+____________________________________________________________________________
+<br>
+<br>
+<br>
+<br>
+
+# 그래프(Graph)  
+ ## 정의  
+Graph(그래프) :  
+-  그래프 G(V,E) -> 그래프는 정점(Vertex)과 간선(Edge)의 집합이다. 
+- 정점(Vertices)들의 집합 (유한집합O + 공집합X)  -> V(G)  
+- 간선(Edge)들의 집합 (유한집합O + 공집합도 가능) -> E(G)  
+- Loop(루프)를 고려하지 않는다. -> 자기 자신을 향하는 E는 없다. (가정)
+- 각각의 V간에 E는 1개만 존재한다. (가정)   
+
+<br>
+
+### 비방향성(무방향성) 그래프 (Undirected Graph)
+방향성이 없는 그래프 이다.   
+아래 그림과 같이 7에서 21로 가는 (7 , 21) 과 21에서 7로 가는 (21 , 7)은 __서로 같다.__   
+<img width=300 src="Graph/Undirected_Graph.jpg">
+
+<br>
+
+### 방향성 그래프 (Directed Graph -> (Digraph))  
+방향성을 갖는 그래프이다.  
+아래 그림과 같이 7에서 21로가는 <7 , 21>과 21에서 7로 가는 <21 , 7>은 __서로 다르다.__  
+<img width=300 src="Graph/Directed_Graph.jpg">
+
+<br>
+
+### 그래프의 예시  
+<img width=600 src="Graph/GraphEx1.jpg">
+<img width=600 src="Graph/GraphEx2.jpg">
+
+## 특징  
+
+- 완전 그래프(Complete Graph) : 모든 V가 서로 연결되어 E의 갯수가 최대인 그래프   
+n이 V의 갯수 일 때,  
+1. 비방향성 그래프의 경우 E의 갯수가 n(n-1)/2 이면 최대이다. -> 4개의 V를 가진 그래프의 최대 E의 갯수는 6개이다.  
+2. 방향성 그래프의 경우 E의 갯수가 n(n-1) 이면 최대이다. -> 4개의 V를 가진 그래프의 최대 E의 갯수는 12개이다.
+
+- 인접하다.(adjacent) : 정점 u와 v의 관계 (u , v)가 있을때 u와 v는 인접한다.
+- 부속된다.(incident) : 간선 (u , v)가 있을 때, 이 간선은 u와 v에 부속된다.
+
+- (부분)서브 그래프(SubGraph) : 서브 그래프 G'에 대하여,  
+ V(G') ⊆ V(G)  이고,  E(G') ⊆ E(G) 이다.  
+ <img width=600 src="Graph/SubGraph.jpg">
+
+<br>
+
+- 경로(path) : 그래프 안에서 정점 u 에서 정점 v로 가는 정점들의 순서를 의미한다.  
+경로 u , i₁ , i₂ , i₃, ... , i₉ , k 일때 (u , i₁) , ( i₁ , i₂) , (i₂ , i₃) , ... , (i₉ , k)로 표현 가능  
+방향성 그래프라면 <u , i₁> , <i₁ , i₂> , ... , <i₉ , k> 로 표현한다.  
+
+- 경로의 길이(Length of path) : 경로의 Edge 갯수를 의미한다.  
+
+- 단순 경로(Simple path) : 한번 지나간 경로는 다시 지나가지 않고, 경로의 시작과 끝 정점이 __서로 다르다.__
+
+- 순환(Cycle) : 단순 경로 + 경로의 시작과 끝 정점이 __서로 같다.__
+
+- 연결(Connected) : 그래프 안에서 정점 u에서 정점 v로 가는 경로가 있다면  u와 v는 연결되어 있다.  
+
+- 연결 요소(Connected Component) : 비방향성 G(V,E)의 서브 그래프 G'(V,E)를 의미하며, G의 모든 V가 G'에 있으며, G'의 모든 V는 연결되어 있다.  
+<img width=450 src="Graph/Connected_Component.jpg">
+
+<br>
+
+- 차수(Degree) : 비방향성 그래프에서 V에 부속되어 있는(붙어있는) E의 갯수를 의미한다.  
+방향성 그래프의 경우, V에서 나가는 E를 출력 차수(out-degree), V로 들어오는 E를 입력 차수(in-degree)라고 부른다.  
+<img width=500 src="Graph/Degree.jpg">
+
+### Depth First Search - DFS 
+깊이 우선 탐색이라고도 부른다.  
+탐색을 한쪽 방향으로 진행을 하며, 막히게 된다면 이전의 가장 가까운 갈림길로 되돌아가 다시 탐색 한다.  
+Preorder와 유사하다.  
+  
+  
+
+<부록>
+- Euler's Walk
+- Strongly conneted
+- Adjacnet Maxtrix
+- Adjacnet List
+- Inverse Adjacency List
+- Adjacnet Multilists
+- Weighted Edges
